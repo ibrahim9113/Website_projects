@@ -1,0 +1,23 @@
+const likeButtons = document.querySelectorAll('.like-button');
+const commentButtons = document.querySelectorAll('.add-comment');
+
+likeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        button.textContent = 'Liked';
+        button.disabled = true;
+    });
+});
+
+commentButtons.forEach((button, index) => {
+    button.addEventListener('click', function() {
+        const commentInput = document.querySelector(`#commentInput${index + 1}`);
+        const commentList = document.querySelector(`#commentList${index + 1}`);
+        
+        if (commentInput.value.trim() !== "") {
+            const newComment = document.createElement('li');
+            newComment.textContent = commentInput.value;
+            commentList.appendChild(newComment);
+            commentInput.value = "";
+        }
+    });
+});
