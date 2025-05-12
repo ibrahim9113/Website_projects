@@ -1,0 +1,42 @@
+// Modal
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+
+const projectDetails = {
+  project1: {
+    title: "React App",
+    desc: "A responsive React.js application for managing tasks."
+  },
+  project2: {
+    title: "JavaScript Game",
+    desc: "A fun game built using JavaScript and Canvas."
+  },
+  project3: {
+    title: "CMS Blog",
+    desc: "A blog system with login, editor, and posts."
+  }
+};
+
+function openModal(key) {
+  modalTitle.textContent = projectDetails[key].title;
+  modalDesc.textContent = projectDetails[key].desc;
+  modal.style.display = 'flex';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Contact Form
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  alert('Thanks for reaching out!');
+  this.reset();
+});
+
+// Dark mode
+const darkToggle = document.getElementById('darkToggle');
+darkToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
